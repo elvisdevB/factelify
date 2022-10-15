@@ -1,0 +1,25 @@
+{% extends 'form.html' %}
+
+{% block scripts %}
+<script>
+    $('form').on('submit', function (e) {
+      e.preventDefault();
+      var parametros = $(this).serializeArray();
+	  $.ajax({
+		  	url: window.location.pathname,
+		  	type: 'POST',
+		  	data: parametros,
+		  	dataType: 'json'
+		}).done(function (data) {
+			if(! data.hasOwnProperty('error')){
+				location.href = '{{ list_url }}';
+				return false;
+			}
+			message_error(data.error);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            alert(textStatus + ': ' + errorThrown);
+        }).always(function (data) {
+        });
+    });
+  </script>
+{% endblock %}

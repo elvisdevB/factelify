@@ -1,0 +1,26 @@
+{% extends 'list.html' %}
+{% load static %}
+
+{% block js %}
+    <script src="{% static 'cliente/js/list.js' %}"></script>
+{% endblock %}
+
+{% block columnas %}
+<tr>
+    <th scope="col">Cédula</th>
+    <th scope="col">Nombres</th>
+    <th scope="col">Apellidos</th>
+    <th scope="col">Teléfono</th>
+    <th scope="col">Dirección</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+</tr>
+{% endblock %}
+
+{% block filas %}
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'body.html' %}
+
+{% block contenido %}
+
+
+<div class="main-content" style="min-height: 762px;">
+    <section class="section">
+        <div class="section-header">
+            <h1>{{ titulo }}</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item"><a href="#">Bootstrap Components</a></div>
+                <div class="breadcrumb-item">Form</div>
+            </div>
+        </div>
+
+        <form id="clienteformulario" method="POST" action=".">
+            {%csrf_token%}
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">{{ entidad }}</h4>
+
+                    <!--<input type="hidden" name="action" value="{{ action }}">-->
+
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        <label for="name">{{ field.label }}: </label>
+                        {{ field }}
+                    </div>
+                    {% endfor %}
+
+
+                    <div class="card-footer">
+                        <div class="alert alert-danger alert-has-icon">
+                            <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                            <div class="alert-body">
+                                <div class="alert-title">Atencion!</div>
+                                Seguro que desea eliminar la Cliente {{ object.nombre }} {{ object.apellido }}
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btnTest">
+                            <i class="fas fa-save"></i> Si, Aceptar
+                        </button>
+
+                        <a href="{{ list_url }}" type="submit" class="btn btn-info btnTest">
+                            <i class="fas fa-times"></i> Cancelar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'form.html' %}
+{% load static %}
+
+
+{% block JSAditional %}
+
+	<link href="{% static 'lib/select2-4.0.13/css/select2.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'lib/select2-4.0.13/css/select2-bootstrap4.min.css' %}" rel="stylesheet" />
+	<script src="{% static 'lib/select2-4.0.13/js/select2.min.js' %}"></script>
+	<script src="{% static 'lib/select2-4.0.13/js/i18n/es.js' %}"></script>
+	<script src="{% static 'formUser.js' %}"></script>
+{% endblock %}
+	
+
+{% block scripts %}
+<script>
+	$('form').on('submit', function (e) {
+		e.preventDefault();
+		var parameters = new FormData(this)
+		submit_with_ajax(window.location.pathname, 'Notificación', '¿Estas seguro de realizar la siguiente acción?', parameters, function () {
+            location.href = '{{ list_url }}';
+        }); 
+	});
+</script>
+
+{% endblock %}

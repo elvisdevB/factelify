@@ -1,0 +1,26 @@
+{% extends 'list.html' %}
+{% load static %}
+{% block js %}
+    <script src="{% static 'js/listProductos.js' %}"></script>
+{% endblock %}
+
+{% block columnas %}
+<tr>
+    <th scope="col">Proveedor</th>
+    <th scope="col">Categoria</th>
+    <th scope="col">Nombre Producto</th>
+    <th scope="col">Cod. Producto</th>
+    <th scope="col">Descuento</th>
+    <th scope="col">Precio Unitaro</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+</tr>
+{% endblock %}
+
+{% block filas %}
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}

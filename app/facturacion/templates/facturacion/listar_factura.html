@@ -1,0 +1,52 @@
+{% extends 'list.html' %}
+{% load static %}
+
+{% block js %}
+<script src="{% static 'venta/listVenta.js' %}"></script>
+{% endblock %}
+
+{% block columnas %}
+<tr>
+    <th scope="col">Cliente</th>
+    <th scope="col">Fecha de Emision</th>
+    <th scope="col">Subtotal</th>
+    <th scope="col">Total</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+</tr>
+{% endblock %}
+
+{% block filas %}
+
+{% endblock %}
+
+{% block javascript %}
+
+<!-- Modal -->
+<div class="modal fade" id="miModalDetalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-shopping-cart"></i>Consulta de Detalle
+                    de Productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered" id="tableDetalle">
+                    <thead>
+                        <tr>
+                            <th>Nombre Producto</th>
+                            <th>Categoria</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 
+{% endblock %}

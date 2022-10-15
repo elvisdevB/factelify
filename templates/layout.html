@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Layout › Default — Stisla</title>
+
+    <!-- General CSS Files -->
+    {% load static %}
+    <link href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'fonts/font-awesome/css/all.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Plugins -->
+
+    <!-- Lib adicional -->
+    <script src="{% static 'lib/sweetalert2-9.10.0/sweetalert2.all.min.js' %}"></script>
+
+
+    <!-- Template CSS -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/components.css' %}" rel="stylesheet" type="text/css" />
+
+    <!--Datatable-->
+    {% block head %}
+
+    {% endblock %}
+
+    <!-- Estilos -->
+    {% block estilos %}
+
+    {% endblock %}
+</head>
+{% block body %}
+
+{% endblock %}
+
+
+
+</html>

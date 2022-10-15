@@ -1,0 +1,75 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block JSAditional %}
+<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/css/dataTables.bootstrap4.min.css' %}"/>
+<link rel="stylesheet" href="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/css/responsive.bootstrap4.min.css' %}"/>
+<script src="{% static 'lib/datatables-1.10.20/js/jquery.dataTables.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'lib/datatables-1.10.20/plugins/responsive-2.2.3/js/responsive.bootstrap4.min.js' %}"></script>
+    {% block js %}
+
+    {% endblock %}
+{% endblock %}
+
+{% block contenido %}
+    <div class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h1>{{ entidad }}</h1>
+                <div class="section-header-breadcrumb">
+                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item"><a href="#">{{ section_header }}</a></div>
+                </div>
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>{{ titulo }}</h4>
+                                 <a href="{{ create_url }}" class="btn  btn-primary btn-sm">Registrar</a>
+                            </div>
+                            <div ></div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="data">
+                                        <thead>
+                                            {% block columnas %}
+
+                                            {% endblock %}
+
+                                        </thead>
+                                        <tbody>
+                                            {% block filas %}
+
+                                            {% endblock %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <div class="card-footer text-right">
+                                {% block cardfooter %}
+
+                                {% endblock%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% block javascript %}
+    <script type="application/javascript">
+        $(function () {
+            $('#data').DataTable({
+                responsive: true,
+                autoWidth: false
+            });
+        });
+    </script>
+    {% endblock %}
+{% endblock %}
